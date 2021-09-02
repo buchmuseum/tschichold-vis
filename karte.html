@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>pydeck</title>
+        <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <script src='https://cdn.jsdelivr.net/npm/@deck.gl/jupyter-widget@~8.4.*/dist/index.js'></script>
+    <style>
+    body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#deck-map-container {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
+#map {
+  pointer-events: none;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+}
+
+#deckgl-overlay {
+  z-index: 2;
+  background: none;
+}
+
+#deck-map-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+#deck-container {
+  width: 100vw;
+  height: 100vh;
+}
+    </style>
+  </head>
+  <body>
+    <div id="deck-container">
+    </div>
+  </body>
+  <script>
+    const jsonInput = {"initialViewState": {"bearing": 0, "latitude": 50.67877877706058, "longitude": 8.129981238464392, "maxZoom": 16, "zoom": 4.5}, "layers": [{"@@type": "ScatterplotLayer", "data": [{"lat": 46.2017029, "lon": 8.6580917, "n": 92}, {"lat": 47.5581077, "lon": 7.5878261, "n": 1122}, {"lat": 47.3496571, "lon": 7.903787, "n": 10}, {"lat": 47.4824633, "lon": 8.2085662, "n": 2}, {"lat": 52.5170365, "lon": 13.3888599, "n": 50}, {"lat": 51.4889317, "lon": -0.4755435, "n": 221}, {"lat": 48.1371079, "lon": 11.5753822, "n": 233}, {"lat": 50.1106444, "lon": 8.6820917, "n": 16}, {"lat": 51.3406321, "lon": 12.3747329, "n": 238}, {"lat": 51.0493286, "lon": 13.7381437, "n": 11}, {"lat": 48.7784485, "lon": 9.1800132, "n": 8}, {"lat": 51.5073219, "lon": -0.1276474, "n": 29}, {"lat": 52.0191005, "lon": 8.531007, "n": 1}, {"lat": 48.3565749, "lon": 7.3194249, "n": 3}, {"lat": 47.3744489, "lon": 8.5410422, "n": 28}, {"lat": 48.8048828, "lon": 9.2146797, "n": 2}, {"lat": 48.5236164, "lon": 9.0535531, "n": 13}, {"lat": 46.8055656, "lon": 7.1612669, "n": 1}, {"lat": 53.550341, "lon": 10.000654, "n": 7}, {"lat": 46.5218269, "lon": 6.6327025, "n": 5}, {"lat": 49.4093582, "lon": 8.694724, "n": 5}, {"lat": 47.659216, "lon": 9.1750718, "n": 1}, {"lat": 47.4839723, "lon": 7.7347783, "n": 1}, {"lat": 47.7811014, "lon": 9.612468, "n": 3}, {"lat": 50.0820384, "lon": 8.2416556, "n": 2}, {"lat": 47.1286095, "lon": 8.7500299, "n": 3}, {"lat": 47.4250593, "lon": 9.3765878, "n": 3}, {"lat": 48.5711277, "lon": -97.1780148, "n": 1}, {"lat": 47.0505452, "lon": 8.3054682, "n": 15}, {"lat": 46.9482713, "lon": 7.4514512, "n": 5}, {"lat": 46.9393277, "lon": 7.4043817, "n": 1}, {"lat": 52.624056, "lon": 10.081052, "n": 4}, {"lat": 52.3727598, "lon": 4.8936041, "n": 4}, {"lat": 53.7944229, "lon": -1.7519186, "n": 2}, {"lat": 59.3251172, "lon": 18.0710935, "n": 1}, {"lat": 49.3295535, "lon": 11.0195132, "n": 1}, {"lat": 47.5816927, "lon": 7.6479737, "n": 1}, {"lat": NaN, "lon": NaN, "n": 1}, {"lat": 48.2083537, "lon": 16.3725042, "n": 1}, {"lat": 52.3744779, "lon": 9.7385532, "n": 1}, {"lat": 52.2319581, "lon": 21.0067249, "n": 13}, {"lat": 51.3441994, "lon": 12.4438271, "n": 1}, {"lat": 49.5748582, "lon": 6.5750795, "n": 1}], "filled": true, "getFillColor": [255, 140, 0], "getLineColor": [0, 0, 0], "getPosition": "@@=[lon, lat]", "getRadius": "@@=n*50", "id": "b1a56138-42f9-4d05-9317-0420323c2009", "lineWidthMinPixels": 1, "opacity": 0.5, "pickable": true, "radiusMinPixels": 2, "stroked": true}], "mapProvider": "carto", "mapStyle": "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json", "views": [{"@@type": "MapView", "controller": true}]};
+    const tooltip = true;
+    const customLibraries = null;
+
+    const deckInstance = createDeck({
+                  container: document.getElementById('deck-container'),
+      jsonInput,
+      tooltip,
+      customLibraries
+    });
+
+  </script>
+</html>
