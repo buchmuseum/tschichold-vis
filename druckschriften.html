@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .error {
+        color: red;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@4.8.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-9af5bf991c8919132a46b374e8c7effd"}, "mark": "bar", "encoding": {"color": {"type": "nominal", "field": "schrift", "sort": "-y", "title": "Schrift"}, "tooltip": [{"type": "nominal", "field": "schrift", "title": "Schrift"}, {"type": "quantitative", "field": "title", "title": "Anzahl Datens\u00e4tze"}], "x": {"type": "nominal", "field": "schrift", "sort": "-y", "title": "Schrift"}, "y": {"type": "quantitative", "field": "title", "title": "Datens\u00e4tze"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-9af5bf991c8919132a46b374e8c7effd": [{"schrift": "Antesk", "idn": 1, "title": 1}, {"schrift": "Garamond", "idn": 11, "title": 11}, {"schrift": "Neue konstruierbare Blockschrift", "idn": 2, "title": 2}, {"schrift": "Sabon", "idn": 18, "title": 18}, {"schrift": "Saskia", "idn": 4, "title": 4}, {"schrift": "Transito", "idn": 6, "title": 6}, {"schrift": "Uhertype Antiqua", "idn": 3, "title": 3}, {"schrift": "Uhertype Ramses", "idn": 2, "title": 2}, {"schrift": "Uhertype Standard-Grotesk", "idn": 22, "title": 22}, {"schrift": "Zeus", "idn": 3, "title": 3}, {"schrift": "[Konstruierte Grotesk]", "idn": 1, "title": 1}, {"schrift": "[Schablonenschrift f\u00fcr die Stempel AG]", "idn": 3, "title": 3}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div class="error" style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
